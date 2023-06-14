@@ -1,0 +1,36 @@
+
+.imagem::before{
+  content: '';
+  background-color: green;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  opacity: 0.2;
+}
+
+.cardDeputado{
+  width: 70%;
+  height: 100%;
+}
+
+.corTitulo{
+  color:#1565C0;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.corButton{
+    color:#1565C0;
+    text-decoration: none;
+    position: absolute;
+}
+
+.nomeDeputadoCarrosel{
+  color: black;
+  background-color: aliceblue;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
