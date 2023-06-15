@@ -12,7 +12,6 @@ export const index = () => {
 
   
   const {push, query} = useRouter()
-
   const { register, handleSubmit, setValue } = useForm()
 
   const[feedback, setFeedback] = useState([])
@@ -27,9 +26,9 @@ export const index = () => {
 
   function salvar(dados) {
     const feedback = JSON.parse(window.localStorage.getItem('feedback')) || []
-    feedback.push(query.id, 1, dados)
+    feedback.push(dados)
     window.localStorage.setItem('feedback', JSON.stringify(feedback))
-    push('/feedback')
+    setFeedback(feedback)
 }
 
   function excluir(id){
@@ -53,7 +52,7 @@ export const index = () => {
     required: 'O campo é obrigatório'
   }
 
-
+console.log(feedback)
     return (
         <Pagina2 titulo="feedback">
 
@@ -88,6 +87,7 @@ export const index = () => {
     <Table striped bordered hover variant="dark">
       <thead>
         <tr>
+          <th>#</th>
           <th>Nome</th>
           <th>Email</th>
           <th>Observações</th>
@@ -97,6 +97,12 @@ export const index = () => {
       <tbody>
       {feedback.map((item,i) => (
         <tr key={i}>
+          <td>
+            <td>
+                {' '}
+                    <Button title="Excluir" onClick={() => excluir(i)} className='text-danger' />
+                </td>
+          </td>
           <td>{item.nome}</td>
           <td>{item.email}</td>
           <td>{item.observacoes}</td>
